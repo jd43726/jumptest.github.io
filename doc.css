@@ -51,10 +51,6 @@ pre {
 }
 
 @media (max-width: 731px) {
-    #container {
-        grid-template-columns: 1fr;
-    }
-
     #navbar {
         position: absolute;
         top: 0px;
