@@ -1,0 +1,130 @@
+<head>
+    <link href="surveyForm.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
+        function toggleOtherTextField() {
+            var otherLanguageCheckbox = document.getElementById('otherLanguage');
+            if (document.getElementById('other').checked) {
+                otherLanguageCheckbox.style.visibility = 'visible';
+            } else {
+                otherLanguageCheckbox.style.visibility = 'hidden';
+                otherLanguageCheckbox.value = '';
+            }
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<main>
+    <div>
+        <form id="survey-form">
+            <div class="desc_container">
+                <h1 id="title">Developer resource survey</h1>
+                <p id="description">Let us know what skills will move your project forward.</p>
+            </div>
+            <div class="formlabel">
+                <label for="name" id="name-label"><span class="required">*</span>Primary contact:</label>
+            </div>
+            <div class="formcontrol">
+                <input type="text" id="name" name="name" placeholder="Enter primary contact name" required>
+            </div>
+            <div class="formlabel">
+                <label for="email" id="email-label"><span class="required">*</span>Email:</label>
+            </div>    
+            <div class="formcontrol">
+                <input type="email" id="email" name="email" placeholder="Enter email address" required>
+            </div>
+            <div class="formlabel">
+                <label for="number" id="number-label"><span class="required">*</span>Budget for resource (USD):</label>
+            </div>
+            <div class="formcontrol">
+                <input type="number" class="inputcontrol" size="12" id="number" name="number" min="1" max="150000" placeholder="Budget">
+            </div>    
+            <div class="formlabel">
+                <label for="dropdown" id="dropdown-label">Developer role:</label>
+            </div>
+            <div class="formcontrol">
+                <select id="dropdown" name="role">
+                    <option value="">--Select developer role--</option>
+                    <option value="FRONTEND">Front end</option>
+                    <option value="BACKEND">Back end</option>
+                    <option value="DEVOPS">Devops</option>
+                    <option value="DBA">Database (DBA)</option>
+                    <option value="AUTOMATION">Test automation</option>
+                    <option value="FULLSTACK">Full stack</option>
+                </select>
+            </div>
+            <div class="formlabel">
+                <label id="timeframe-label">Project timeline (months)</label>:
+            </div>
+            <div class="formcontrol">
+                <ul>
+                    <li>
+                        <label for="underSixMonths">
+                            <input type="radio" id="underSixMonths" name="timeframe" value="uotpsixmonths" checked>1 to 6
+                        </label>
+                    </li>
+                    <li>
+                        <label for="sixMonthsToYear">
+                            <input type="radio" id="sixMonthsToYear" name="timeframe" value="6to12months">6 to 12
+                        </label>
+                    </li>
+                    <li>
+                        <label for="overOneYear">
+                            <input type="radio" id="overOneYear" name="timeframe" value="12monthsplus">12+
+                        </label>
+                    </li>
+                    <li>
+                        <label for="custom">
+                            <input type="radio" id="custom" name="timeframe" value="custom">N/A
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="formlabel">
+                <label id="languages-label">Languages you use:<br>(Check all that apply)</label>
+            </div>
+            <div class="formcontrol">
+                <ul>
+                    <li>
+                        <input type="checkbox" id="python" name="languages" value="python">
+                        <label for="python">Python</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="javascript" name="languages" value="javascript">
+                        <label for="javascript">JavaScript</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="webdev" name="languages" value="webdev">
+                        <label for="webdev">HTML/CSS/SASS</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="clang" name="languages" value="clang">
+                        <label for="clang">C/C++</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="javajvm" name="languages" value="javajvm">
+                        <label for="javajvm">Java/JVM Languages</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="other" name="languages" value="other" onClick="toggleOtherTextField()">
+                        <label for="other">Other</label>
+                            <div>
+                                <input type="text" style="visibility:hidden" class="inputcontrol"
+                                        id="otherLanguage" name="otherLanguage" placeholder="Other language">
+                            </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="formlabel">
+                <label class="formlabel" for="additional-comments">Additional comments: </label>
+            </div>
+            <div class="formcontrol">
+                <textarea id="additional-comments" name="comments" placeholder="Enter additional comments"></textarea>
+            </div>
+            <div class="submitrow">
+            <input type="hidden" id="submissionDate" name="submissionDate" value="new Date()">
+            <button type="submit" id="submit">Submit form</button>
+            </div>
+        </form>
+    </div>
+</main>
